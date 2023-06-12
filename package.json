@@ -1,0 +1,20 @@
+{
+  "name": "nodejs-logger-qwzclm",
+  "version": "1.0.0",
+  "description": "Develop the command line node.js application, which parses the input log file (see Input Example). The application should find all the log messages with the level error and print them into the output file (see Output Format).",
+  "main": "parser.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://berbob-gmbh-ftcbiq@git.codesubmit.io/berbob-gmbh/nodejs-logger-qwzclm"
+  },
+  "keywords": [
+    "nodejs",
+    "log",
+    "parser"
+  ],
+  "author": "Mohammad Moussa",
+  "license": "ISC"
+}

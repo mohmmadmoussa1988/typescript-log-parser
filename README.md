@@ -73,7 +73,11 @@ node parser.js --input ./app.log --output ./errors.json
 
 ### Requirements
 
+- TypeScript OOP project.
 - Node.js v18+.
+- Designed in accordance with OOD principles (DRY, SLAP, SOLID, etc).
+- Unit-testing ready (or partially covered by tests).
+- Flexibility of the architecture. Application should be easy to extend and modify.
 
 ### Runnning command
 
@@ -84,8 +88,8 @@ node parser.js --input ./app.log --output ./errors.json
 
     # Options
 
-- -t, --input (required) : to specify input file path
-- -t, --output (optional) : to specify output file path
+- -i, --input (required) : to specify input file path
+- -o, --output (optional) : to specify output file path
 - -t, --log-level (optional) : to specify which type of log level needed (default : error)
 - -s, --splitter (optional): to specify the regex that should be used to split log records/lines, default regex provided
 - -b, --batch-number (optional): to specify the batch size/lines for every reading loop, default is 1000

@@ -1,9 +1,10 @@
 import { Splitter } from "../../src/splitters/splitter";
+import { ISplitter } from "../../src/splitters/splitter.interface";
 import { DefaultlogRecordInterface } from "../../src/interfaces/default-log-record.interface";
 import * as defaults from "../../src/splitters/defaults";
 
 describe("Splitter", () => {
-  let splitter: Splitter;
+  let splitter: ISplitter;
 
   beforeEach(() => {
     splitter = new Splitter();

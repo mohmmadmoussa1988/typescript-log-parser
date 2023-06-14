@@ -84,14 +84,14 @@ node parser.js --input ./app.log --output ./errors.json
     - Minimum options required for running command  to run applicaiton is:
       - node parser.js --input ./app.log --output ./errors.json
     - More options can be used
-      - node parser.js --input ./app.log --output ./errors.json --log-level error --splitter ^(.+) - (\\w+) - (.+)$ --batch-number 1000
+      - node parser.js --input ./app.log --output ./errors.json --log-level error --log-format '^(.+) - (\w+) - (.+)$' --batch-number 1000
 
     # Options
 
 - -i, --input (required) : to specify input file path
 - -o, --output (optional) : to specify output file path
 - -t, --log-level (optional) : to specify which type of log level needed (default : error)
-- -s, --splitter (optional): to specify the regex that should be used to split log records/lines, default regex provided
+- -l, --log-format (optional): to specify the regex that should be used to split log records/lines, default regex provided
 - -b, --batch-number (optional): to specify the batch size/lines for every reading loop, default is 1000
 
 # Components

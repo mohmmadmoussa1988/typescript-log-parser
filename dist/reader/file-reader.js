@@ -49,7 +49,7 @@ class FileReader {
         this.formater = formater;
         this.writer = writer;
     }
-    readFileInBatches(filePath, batchSize, logLevel, format) {
+    readFileInBatches(filePath, batchSize, logLevel, splitter) {
         var _a, e_1, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             const fileStream = fs.createReadStream(filePath);
@@ -67,7 +67,7 @@ class FileReader {
                     lines.push(line);
                     if (lines.length === batchSize) {
                         //preapre & append
-                        this.writeFormatedResults(logLevel, format, lines);
+                        this.writeFormattedResults(logLevel, splitter, lines);
                         lines = [];
                     }
                 }
@@ -81,12 +81,12 @@ class FileReader {
             }
             if (lines.length > 0) {
                 //prepare & append
-                this.writeFormatedResults(logLevel, format, lines);
+                this.writeFormattedResults(logLevel, splitter, lines);
             }
             return "done";
         });
     }
-    writeFormatedResults(logLevel, format, lines) {
+    writeFormattedResults(logLevel, format, lines) {
         const formattedResults = [];
         //splitting
         const splittedLines = this.splitter.split(lines, format);

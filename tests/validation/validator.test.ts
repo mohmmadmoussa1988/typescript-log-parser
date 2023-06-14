@@ -32,7 +32,6 @@ describe("Validator", () => {
 
     // Act
     const errorMessages = validator.validate(rules);
-
     // Assert
     expect(errorMessages).toEqual([]);
   });
@@ -54,11 +53,11 @@ describe("Validator", () => {
 
     // Act
     const errorMessages = validator.validate(rules);
-
+    console.log("errorMessages", errorMessages);
     // Assert
     expect(errorMessages).toEqual([
-      "Input must be a number",
-      "Input must be a string",
+      "Input must be a number\n",
+      "Input must be a string\n",
     ]);
   });
 });

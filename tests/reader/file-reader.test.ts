@@ -2,7 +2,7 @@ import { FileReader } from "../../src/reader/file-reader";
 import defaults from "../../src/splitters/defaults";
 import { Splitter } from "../../src/splitters/splitter";
 import { LogLevelFilter } from "../../src/filters/log-level-type-filter";
-import { FormatFactory } from "../../src/formaters/format.factory";
+import { FormatFactory } from "../../src/formatters/format.factory";
 import { WritterFactory } from "../../src/writers/writter.factory";
 import { LogLevelEnum } from "../../src/enums/log-level.enum";
 import { IWriter } from "../../src/writers/writter.interface";

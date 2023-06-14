@@ -4,7 +4,7 @@ import Application from "./app";
 import { Command } from "./command";
 import { WritterFactory } from "./writers/writter.factory";
 import { LogLevelFilter } from "./filters/log-level-type-filter";
-import { FormatFactory } from "./formaters/format.factory";
+import { FormatFactory } from "./formatters/format.factory";
 
 const command = new Command();
 const options = command.getOptions();

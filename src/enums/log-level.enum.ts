@@ -1,6 +1,6 @@
 export enum LogLevelEnum {
   ERROR = "error",
-  iNFO = "info",
+  INFO = "info",
   DEBUG = "debug",
   WARN = "warn",
 }
@@ -10,7 +10,7 @@ export function LogLevelEnumFromString(value: string): LogLevelEnum {
     case "error":
       return LogLevelEnum.ERROR;
     case "info":
-      return LogLevelEnum.iNFO;
+      return LogLevelEnum.INFO;
     case "debug":
       return LogLevelEnum.DEBUG;
     case "warn":

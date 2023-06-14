@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ErrorTypeformater = void 0;
-class ErrorTypeformater {
+exports.ErrorTypeFormatter = void 0;
+class ErrorTypeFormatter {
     format(records) {
         return records.map((record) => {
             const errorRecord = {
-                timestamp: this.dateformater(record.date),
+                timestamp: this.dateFormatter(record.date),
                 loglevel: record.logLevel,
                 transactionId: record.json.transactionId,
                 err: record.json.err,
@@ -13,10 +13,10 @@ class ErrorTypeformater {
             return errorRecord;
         });
     }
-    dateformater(recordDate) {
+    dateFormatter(recordDate) {
         const date = new Date(recordDate);
         const epochTimestamp = Math.floor(date.getTime() / 1000);
         return epochTimestamp;
     }
 }
-exports.ErrorTypeformater = ErrorTypeformater;
+exports.ErrorTypeFormatter = ErrorTypeFormatter;

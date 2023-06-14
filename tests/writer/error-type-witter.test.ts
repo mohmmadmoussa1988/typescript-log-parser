@@ -1,4 +1,4 @@
-import { JsonArrayWriter } from "../../src/writers/error-type-witter";
+import { JsonArrayWriter } from "../../src/writers/json-type-witter";
 import * as fs from "node:fs";
 import winston from "winston";
 

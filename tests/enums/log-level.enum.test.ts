@@ -11,7 +11,7 @@ describe("LogLevelEnumFromString", () => {
 
   test("Should return LogLevelEnum.INFO for 'info'", () => {
     const result = LogLevelEnumFromString("info");
-    expect(result).toBe(LogLevelEnum.iNFO);
+    expect(result).toBe(LogLevelEnum.INFO);
   });
 
   test("Should return LogLevelEnum.DEBUG for 'debug'", () => {

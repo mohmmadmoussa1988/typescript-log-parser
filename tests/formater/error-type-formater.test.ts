@@ -1,8 +1,8 @@
-import { ErrorTypeFormatter } from "../../src/formaters/error-type-formater";
-import { IFormater } from "../../src/formaters/format.interface";
+import { ErrorTypeFormatter } from "../../src/formatters/error-type-formatter";
+import { IFormatter } from "../../src/formatters/format.interface";
 
 describe("ErrorTypeFormatter", () => {
-  let formater: IFormater;
+  let formater: IFormatter;
 
   beforeEach(() => {
     formater = new ErrorTypeFormatter();

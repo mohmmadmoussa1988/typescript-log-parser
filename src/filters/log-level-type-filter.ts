@@ -7,9 +7,9 @@ export class LogLevelFilter implements IFilter {
     logLevel: LogLevelEnum,
     records: DefaultlogRecordInterface[]
   ): DefaultlogRecordInterface[] {
-    return records.filter(
-      (record: DefaultlogRecordInterface) =>
-        record.logLevel === LogLevelEnum.ERROR
+    const filteredResults = records.filter(
+      (record: DefaultlogRecordInterface) => record.logLevel === logLevel
     );
+    return filteredResults;
   }
 }

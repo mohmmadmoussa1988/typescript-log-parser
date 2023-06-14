@@ -22,13 +22,15 @@ class Application {
         this.filter = filter;
     }
     run(options) {
-        this.validate(options);
-        this.exec(options);
+        return __awaiter(this, void 0, void 0, function* () {
+            this.validate(options);
+            yield this.exec(options);
+        });
     }
     exec(options) {
         return __awaiter(this, void 0, void 0, function* () {
             this.writer.createOutputFile(options.outputFilePath);
-            const result = yield this.reader.readFileInBatches(options.inputFilePath, options.batchNumber, options.logLevel, options.logFormat);
+            yield this.reader.readFileInBatches(options.inputFilePath, options.batchNumber, options.logLevel, options.logFormat);
             this.writer.closingCreatedFile();
         });
     }

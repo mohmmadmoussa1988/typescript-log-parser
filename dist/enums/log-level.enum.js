@@ -4,7 +4,7 @@ exports.LogLevelEnumFromString = exports.LogLevelEnum = void 0;
 var LogLevelEnum;
 (function (LogLevelEnum) {
     LogLevelEnum["ERROR"] = "error";
-    LogLevelEnum["iNFO"] = "info";
+    LogLevelEnum["INFO"] = "info";
     LogLevelEnum["DEBUG"] = "debug";
     LogLevelEnum["WARN"] = "warn";
 })(LogLevelEnum || (exports.LogLevelEnum = LogLevelEnum = {}));
@@ -13,7 +13,7 @@ function LogLevelEnumFromString(value) {
         case "error":
             return LogLevelEnum.ERROR;
         case "info":
-            return LogLevelEnum.iNFO;
+            return LogLevelEnum.INFO;
         case "debug":
             return LogLevelEnum.DEBUG;
         case "warn":

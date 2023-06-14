@@ -5,6 +5,5 @@ export interface OptionsInterface {
   outputFilePath: string;
   logFormat: string;
   logLevel: LogLevelEnum;
-  splitter: string;
   batchNumber: number;
 }

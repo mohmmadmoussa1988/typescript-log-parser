@@ -1,15 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FormatFactory = void 0;
-const error_type_formater_1 = require("./error-type-formater");
 const log_level_enum_1 = require("../enums/log-level.enum");
+const error_type_formatter_1 = require("./error-type-formatter");
+const general_type_formatter_1 = require("./general-type-formatter");
 class FormatFactory {
     static create(logLevel) {
         switch (logLevel) {
             case log_level_enum_1.LogLevelEnum.ERROR:
-                return new error_type_formater_1.ErrorTypeformater();
+                return new error_type_formatter_1.ErrorTypeFormatter();
+                break;
             default:
-                throw new Error("Invalid formater type");
+                return new general_type_formatter_1.GeneralTypeFormatter();
         }
     }
 }

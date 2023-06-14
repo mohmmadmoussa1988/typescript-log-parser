@@ -1,8 +1,8 @@
 import { DefaultlogRecordInterface } from "../interfaces/default-log-record.interface";
 import { FormattedlogRecordInterface } from "../interfaces/formatted-record.interface";
-import { IFormater } from "./format.interface";
+import { IFormatter } from "./format.interface";
 
-export class ErrorTypeFormatter implements IFormater {
+export class ErrorTypeFormatter implements IFormatter {
   public format(
     records: DefaultlogRecordInterface[]
   ): FormattedlogRecordInterface[] {

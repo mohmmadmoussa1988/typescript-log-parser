@@ -25,11 +25,6 @@ export class Command {
         defaults.logLevel
       )
       .option(
-        "-s, --splitter <regex used for record parsing>",
-        "Specify the regex that should be used to split log records/lines, default regex provided",
-        defaults.splitterDefaultFormat
-      )
-      .option(
         "-b, --batch-number <number of reading batch size>",
         "specify the batch size/lines for every reading loop, default is 1000",
         "1000"
@@ -38,13 +33,11 @@ export class Command {
       .parse(process.argv);
 
     const options = program.opts();
-
     return {
       inputFilePath: options.input,
       outputFilePath: options.output,
       logFormat: options.logFormat,
       logLevel: LogLevelEnumFromString(options.logLevel),
-      splitter: options.Splitter,
       batchNumber: parseInt(options.batchNumber),
     };
   }

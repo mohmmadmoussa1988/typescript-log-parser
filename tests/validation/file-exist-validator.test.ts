@@ -1,4 +1,4 @@
-import { FileExistsValidator } from "../../src/validation/file-exist-validator";
+import { FileExistsValidator } from "../../src/validations/file-exist-validator";
 
 describe("FileExistsValidator", () => {
   let validator: FileExistsValidator;

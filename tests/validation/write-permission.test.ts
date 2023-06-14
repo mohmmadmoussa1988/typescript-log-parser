@@ -1,5 +1,5 @@
 import * as fs from "node:fs";
-import { WritePermission } from "../../src/validation/write-permission";
+import { WritePermission } from "../../src/validations/write-permission";
 import mock from "mock-fs";
 
 describe("WritePermission", () => {

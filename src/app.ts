@@ -1,18 +1,33 @@
 import { FileReader } from "./reader/file-reader";
-import { Validator } from "./validation/validator";
+import { Validator } from "./validations/validator";
 import { ISplitter } from "./splitters/splitter.interface";
-import { FileNotExistsValidator } from "./validation/file-not-exist-validator";
-import { WritePermission } from "./validation/write-permission";
-import { FileExistsValidator } from "./validation/file-exist-validator";
+import { FileNotExistsValidator } from "./validations/file-not-exist-validator";
+import { WritePermission } from "./validations/write-permission";
+import { FileExistsValidator } from "./validations/file-exist-validator";
 import { OptionsInterface } from "./interfaces/command-options.interface";
+import { IWriter } from "./writers/writter.interface";
+import { IFilter } from "./filters/filter.interface";
+import { IFormater } from "./formaters/format.interface";
 
 export default class Application {
   private readonly splitter: ISplitter;
   private readonly reader: FileReader;
+  private readonly formater: IFormater;
+  private readonly writer: IWriter;
+  private readonly filter: IFilter;
 
-  constructor(splitter: ISplitter, reader: FileReader) {
+  constructor(
+    splitter: ISplitter,
+    reader: FileReader,
+    filter: IFilter,
+    formater: IFormater,
+    writer: IWriter
+  ) {
     this.splitter = splitter;
     this.reader = reader;
+    this.formater = formater;
+    this.writer = writer;
+    this.filter = filter;
   }
 
   run(options: OptionsInterface): void {
@@ -21,11 +36,16 @@ export default class Application {
   }
 
   private async exec(options: OptionsInterface): Promise<void> {
+    this.writer.createOutputFile(options.outputFilePath);
+
     const result = await this.reader.readFileInBatches(
       options.inputFilePath,
-      2
+      options.batchNumber,
+      options.logLevel,
+      options.logFormat
     );
-    console.log(result);
+
+    this.writer.closingCreatedFile();
   }
 
   private validate(options: OptionsInterface) {

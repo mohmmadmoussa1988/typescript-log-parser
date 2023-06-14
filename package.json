@@ -32,7 +32,6 @@
   },
   "dependencies": {
     "commander": "^10.0.1",
-    "memfs": "^3.5.3",
     "mock-fs": "^5.2.0",
     "winston": "^3.9.0"
   }

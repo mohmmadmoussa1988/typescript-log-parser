@@ -1,5 +1,5 @@
-import { ValidatorInterface } from "../../src/validation/validation.interface";
-import { Validator } from "../../src/validation/validator";
+import { ValidatorInterface } from "../../src/validations/validation.interface";
+import { Validator } from "../../src/validations/validator";
 
 class MockValidator<T> implements ValidatorInterface<T> {
   isValid(input: T): boolean {

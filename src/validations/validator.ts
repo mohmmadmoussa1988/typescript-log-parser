@@ -12,7 +12,7 @@ export class Validator<T> {
 
     for (let rule of rules) {
       if (!rule.validator.isValid(rule.input)) {
-        errorMessages.push(rule.errorMessage);
+        errorMessages.push(rule.errorMessage + "\n");
       }
     }
 

@@ -43,10 +43,13 @@ exports.FileReader = void 0;
 const fs = __importStar(require("node:fs"));
 const readline = __importStar(require("readline"));
 class FileReader {
-    constructor(splitter) {
+    constructor(splitter, filter, formater, writer) {
         this.splitter = splitter;
+        this.filter = filter;
+        this.formater = formater;
+        this.writer = writer;
     }
-    readFileInBatches(filePath, batchSize) {
+    readFileInBatches(filePath, batchSize, logLevel, format) {
         var _a, e_1, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
             const fileStream = fs.createReadStream(filePath);
@@ -63,8 +66,8 @@ class FileReader {
                     const line = _c;
                     lines.push(line);
                     if (lines.length === batchSize) {
-                        //format
-                        batches.push(lines);
+                        //preapre & append
+                        this.writeFormatedResults(logLevel, format, lines);
                         lines = [];
                     }
                 }
@@ -77,11 +80,24 @@ class FileReader {
                 finally { if (e_1) throw e_1.error; }
             }
             if (lines.length > 0) {
-                //format
-                batches.push(lines);
+                //prepare & append
+                this.writeFormatedResults(logLevel, format, lines);
             }
             return "done";
         });
+    }
+    writeFormatedResults(logLevel, format, lines) {
+        const formattedResults = [];
+        //splitting
+        const splittedLines = this.splitter.split(lines, format);
+        //filter
+        const filteredLines = this.filter.logLevelFilter(logLevel, splittedLines);
+        //format
+        if (filteredLines.length > 0) {
+            const formattedResults = this.formater.format(filteredLines);
+            this.writer.append(formattedResults);
+        }
+        return formattedResults;
     }
 }
 exports.FileReader = FileReader;

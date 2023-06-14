@@ -101,7 +101,7 @@ node parser.js --input ./app.log --output ./errors.json
   - Reader : this component is responsible for reading batches of the app.log files, batch number can be given in the running command or its set to 1000 lines/batch by default.
   - Splitter: this component is responsible for looping on batche records line by line and split it based on the given configuration(regex), and for extendability, this configuration(regex) can also be provided in the running command in case we need to split/parse different logs structure.
   - Log level filter : this component is responsible for looping on the already splitted records array and it filter records based on the given log level filter and also for extendability it can be extended to accept different log levels ex. warn.
-  - Formatter : this component is responsible for formatting every filtered line so we implement changes(ex. date format) and retrieve specific elements from the filtered line (ex. transactionId, err )
+  - formater : this component is responsible for formatting every filtered line so we implement changes(ex. date format) and retrieve specific elements from the filtered line (ex. transactionId, err )
   - Writter : this component is responsible for writing results to the given output file, now it exports json format results but for extendability it can be extened to export results format (ex. csv)
 
 ![Components Diagram](/diagram/components.png)
@@ -109,3 +109,12 @@ node parser.js --input ./app.log --output ./errors.json
 # Application Flow Chart
 
 ![Components Diagram](/diagram/app_flowchart.png)
+
+### Running project in Docker
+
+- In case you need to run project in docker, kindly run the below commands
+
+  - docker build . -t parser
+  - docker run parser
+
+- Then navigate to container files and you will find errors.json has been created

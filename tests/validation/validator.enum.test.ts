@@ -1,4 +1,4 @@
-import { validatorEnum } from "../../src/validation/validator.enum";
+import { validatorEnum } from "../../src/validations/validator.enum";
 
 describe("validatorEnum", () => {
   test("EXIST should have a value of 'exist'", () => {
